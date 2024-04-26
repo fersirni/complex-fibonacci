@@ -3,6 +3,9 @@ version: '3'
 services:
   nginx:
     restart: always
+    depends_on:
+      - api
+      - client
     build:
       context: ./nginx
       dockerfile: Dockerfile.dev

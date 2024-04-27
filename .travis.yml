@@ -1,0 +1,14 @@
+language: generic
+sudo: required
+services:
+  - docker
+before_install:
+  -docker build -t fsirni/react-test -f ./client/Dockerfile.dev ./client
+script:
+  - docker run -e CI=true fsirni/react-test  npm test
+after_success:
+  - docker build -t fsirni/multi-client ./client
+  - docker build -t fsirni/multi-server ./server
+  - docker build -t fsirni/multi-nginx ./nginx
+  - docker build -t fsirni/multi-worker ./worker
+

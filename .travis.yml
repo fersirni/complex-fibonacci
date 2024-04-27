@@ -11,4 +11,8 @@ after_success:
   - docker build -t fsirni/multi-server ./server
   - docker build -t fsirni/multi-nginx ./nginx
   - docker build -t fsirni/multi-worker ./worker
-
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push fsirni/multi-client
+  - docker push fsirni/multi-server
+  - docker push fsirni/multi-nginx
+  - docker push fsirni/multi-worker

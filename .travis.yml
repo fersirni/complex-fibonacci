@@ -1,4 +1,11 @@
 language: generic
+region: 'us-east-2'
+app: 'complex-fibonacci'
+env: 'Complex-fibonacci-env-1'
+bucket_name: 'elasticbeanstalk-us-east-2-161698774435'
+bucket_path: 'docker-complex-fibonacci'
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_KEY
 sudo: required
 services:
   - docker
